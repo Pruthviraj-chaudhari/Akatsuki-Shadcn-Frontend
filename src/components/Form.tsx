@@ -56,7 +56,6 @@ function Form() {
   const [open, setOpen] = useState(false);
 
   const submitHandler = async () => {
-
     setOpen(false);
 
     // Check if all required fields are filled
@@ -82,38 +81,42 @@ function Form() {
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
 
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      toast.promise(
+        async () => {
+          const result = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (!result.ok) {
+            throw result;
+          }
+
+          return result.json();
         },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast.success("Thanks for Submitting", {
-          description: `${formData.name}`,
-        });
-        setFormData(initialData);
-      } else {
-        const statusCode = response.status;
-
-        if (statusCode === 400) {
-          toast.warning("Member already responded.");
-        } else {
-          toast.error("Failed to submit form. Please try again.");
+        {
+          loading: "Submitting...",
+          success: () => {
+            return "Thanks for Submitting";
+          },
+          error: (error) => {
+            const statusCode = error.status;
+            return statusCode === 400
+              ? "Member already responded."
+              : "Failed to submit form. Please try again.";
+          },
         }
-      }
+      );
     } catch (error) {
       console.error("Error submitting form: ", error);
       toast.error("An error occurred while submitting the form");
     }
   };
 
-  const changeHandler = (
-    name: keyof FormData,
-    value: string | number
-  ) => {
+  const changeHandler = (name: keyof FormData, value: string | number) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
