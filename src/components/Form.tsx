@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,8 +31,18 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
+interface FormData {
+  name: string;
+  email: string;
+  role: string;
+  language: string;
+  github: string;
+  leetcode: string;
+  resume: string;
+}
+
 function Form() {
-  const initialData = {
+  const initialData: FormData = {
     name: "",
     email: "",
     role: "",
@@ -42,17 +52,16 @@ function Form() {
     resume: "",
   };
 
-  const [formData, setFormData] = useState(initialData);
+  const [formData, setFormData] = useState<FormData>(initialData);
   const [open, setOpen] = useState(false);
 
-
-  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setOpen(false);
 
     // Check if all required fields are filled
-    const requiredFields = [
+    const requiredFields: (keyof FormData)[] = [
       "name",
       "email",
       "role",
@@ -61,8 +70,10 @@ function Form() {
       "leetcode",
       "resume",
     ];
-    
-    const isFormValid = requiredFields.every((field) => (formData as any)[field]);
+
+    const isFormValid = requiredFields.every(
+      (field) => formData[field as keyof FormData]
+    );
 
     if (!isFormValid) {
       toast.error("Please fill in all required fields.");
@@ -87,21 +98,23 @@ function Form() {
         setFormData(initialData);
       } else {
         const statusCode = response.status;
-      
-        if (statusCode == 400) {
+
+        if (statusCode === 400) {
           toast.warning("Member already responded.");
         } else {
           toast.error("Failed to submit form. Please try again.");
         }
       }
-      
     } catch (error) {
       console.error("Error submitting form: ", error);
-      toast.error("An error occured while submitting the form");
+      toast.error("An error occurred while submitting the form");
     }
   };
 
-  const changeHandler = (name: keyof typeof formData, value: string) => {
+  const changeHandler = (
+    name: keyof FormData,
+    value: string | number
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -111,22 +124,22 @@ function Form() {
   const changeRoleHandler = (value: string) => {
     setFormData((prev) => ({
       ...prev,
-      ["role"]: value,
+      role: value,
     }));
   };
 
   const changeLanguageHandler = (value: string) => {
     setFormData((prev) => ({
       ...prev,
-      ["language"]: value,
+      language: value,
     }));
   };
 
   // Back Navigation
   const navigate = useNavigate();
-  function backHandler() {
+  const backHandler = () => {
     navigate("/");
-  }
+  };
 
   return (
     <div className="flex justify-center items-center h-[100vh] bg-black flex-col">
