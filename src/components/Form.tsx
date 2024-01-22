@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -47,7 +46,7 @@ function Form() {
   const [open, setOpen] = useState(false);
 
 
-  const submitHandler = async (event) => {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setOpen(false);
@@ -62,7 +61,8 @@ function Form() {
       "leetcode",
       "resume",
     ];
-    const isFormValid = requiredFields.every((field) => formData[field]);
+    
+    const isFormValid = requiredFields.every((field) => (formData as any)[field]);
 
     if (!isFormValid) {
       toast.error("Please fill in all required fields.");
@@ -101,7 +101,7 @@ function Form() {
     }
   };
 
-  const changeHandler = (name: keyof FormData, value: string) => {
+  const changeHandler = (name: keyof typeof formData, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,

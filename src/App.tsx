@@ -1,4 +1,3 @@
-import * as React from "react";
 import Form from "./components/Form";
 import Welcome from "./components/Welcome";
 import { Routes, Route } from "react-router-dom";
