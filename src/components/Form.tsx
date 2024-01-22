@@ -101,6 +101,7 @@ function Form() {
           loading: "Submitting...",
           success: () => {
             return "Thanks for Submitting";
+            setFormData(initialData);
           },
           error: (error) => {
             const statusCode = error.status;
@@ -110,6 +111,7 @@ function Form() {
           },
         }
       );
+      
     } catch (error) {
       console.error("Error submitting form: ", error);
       toast.error("An error occurred while submitting the form");
