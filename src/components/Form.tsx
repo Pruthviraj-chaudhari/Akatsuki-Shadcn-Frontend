@@ -165,7 +165,7 @@ function Form() {
                   name="name"
                   value={formData.name}
                   onChange={(e) => changeHandler("name", e.target.value)}
-                  placeholder="John Doe"
+                  placeholder="Firstname Lastname"
                   required
                 />
               </div>
@@ -176,7 +176,7 @@ function Form() {
                   name="email"
                   value={formData.email}
                   onChange={(e) => changeHandler("email", e.target.value)}
-                  placeholder="Johndoe@gmail.com"
+                  placeholder="example@gmail.com"
                   required
                 />
               </div>
@@ -240,7 +240,7 @@ function Form() {
                   name="github"
                   value={formData.github}
                   onChange={(e) => changeHandler("github", e.target.value)}
-                  placeholder="github.com/john-doe"
+                  placeholder="github.com/"
                   required
                 />
               </div>
@@ -251,7 +251,7 @@ function Form() {
                   name="leetcode"
                   value={formData.leetcode}
                   onChange={(e) => changeHandler("leetcode", e.target.value)}
-                  placeholder="leetcode.com/john-doe"
+                  placeholder="leetcode.com/"
                   required
                 />
               </div>
@@ -262,7 +262,7 @@ function Form() {
                   name="linkedin"
                   value={formData.linkedin}
                   onChange={(e) => changeHandler("linkedin", e.target.value)}
-                  placeholder="linkedin.com/in/john-doe"
+                  placeholder="linkedin.com/in/"
                   required
                 />
               </div>
