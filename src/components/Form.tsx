@@ -239,7 +239,7 @@ function Form() {
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="leetcode">Leetcode Profile</Label>
+                <Label htmlFor="leetcode">Leetcode / GFG Profile</Label>
                 <Input
                   id="leetcode"
                   name="leetcode"

@@ -34,7 +34,7 @@ const Welcome = () => {
       </CardHeader>
       <CardContent>
         <CardDescription>
-          Welcome Akatsuki Members!
+          Welcome to Akatsuki Connect !
           <br />
           <br />
           We're eager to learn more about your coding skills and contributions.

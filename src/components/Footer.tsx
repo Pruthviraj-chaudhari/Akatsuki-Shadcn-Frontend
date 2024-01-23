@@ -5,7 +5,7 @@ const Footer = () => {
     <p>
       Design & Developed By 
       <span className="text-slate-500">
-        <a href="https://github.com/Pruthviraj-chaudhari">@Pruthviraj Chaudhari</a>
+        <a href="https://github.com/Pruthviraj-chaudhari"> @Pruthviraj Chaudhari</a>
       </span>
     </p>
   </footer>
