@@ -204,6 +204,9 @@ function Form() {
                     <SelectItem value="Flutter/React Native Developer">
                       Flutter/React Native Developer
                     </SelectItem>
+                    <SelectItem value="UI/UX Designer">
+                      UI/UX Designer
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
