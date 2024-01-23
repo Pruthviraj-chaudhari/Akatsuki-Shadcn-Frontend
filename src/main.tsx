@@ -4,13 +4,13 @@ import App from "./App.tsx";
 import "./index.css";
 // import { Toaster } from "@/components/ui/sonner"
 import { Toaster } from "sonner";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App />
       <Toaster position="top-right" richColors />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
