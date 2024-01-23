@@ -38,6 +38,7 @@ interface FormData {
   language: string;
   github: string;
   leetcode: string;
+  linkedin: string,
   resume: string;
 }
 
@@ -49,6 +50,7 @@ function Form() {
     language: "",
     github: "",
     leetcode: "",
+    linkedin: "",
     resume: "",
   };
 
@@ -66,6 +68,7 @@ function Form() {
       "language",
       "github",
       "leetcode",
+      "linkedin",
       "resume",
     ];
 
@@ -249,6 +252,17 @@ function Form() {
                   value={formData.leetcode}
                   onChange={(e) => changeHandler("leetcode", e.target.value)}
                   placeholder="leetcode.com/john-doe"
+                  required
+                />
+              </div>
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="github">LinkedIn Profile</Label>
+                <Input
+                  id="linkedin"
+                  name="linkedin"
+                  value={formData.linkedin}
+                  onChange={(e) => changeHandler("linkedin", e.target.value)}
+                  placeholder="linkedin.com/in/john-doe"
                   required
                 />
               </div>
