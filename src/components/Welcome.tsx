@@ -7,19 +7,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handleAddMe = () => {
+    navigate("/form");
+  };
 
-  const handleContinue = () => {
-    navigate('/form');
+  const handleDiscover = () => {
+    navigate("/profiles");
   };
 
   return (
-    <Card className="max-w-md mx-auto p-6 rounded-lg shadow-md m-3">
+    <Card className="max-w-sm mx-auto p-2 rounded-lg shadow-md m-3">
       <CardHeader>
         <CardTitle className="text-2xl">
           <div className="w-full">
@@ -46,9 +48,16 @@ const Welcome = () => {
           Hit "Continue"!
         </CardDescription>
       </CardContent>
-      <CardFooter className="mt-4">
-        <Button onClick={handleContinue} size="lg">
-          Continue
+      <CardFooter className="mt-4 gap-4 flex justify-start items-center">
+        <Button onClick={handleDiscover}>
+          Discover Akatsuki
+        </Button>
+
+        <Button className="border-slate-700 border-2"
+          variant="outline"
+          onClick={handleAddMe}
+        >
+          Add Me
         </Button>
       </CardFooter>
     </Card>
