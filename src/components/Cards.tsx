@@ -24,7 +24,6 @@ const Cards = () => {
       const url = import.meta.env.VITE_API_DATA;
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data.data)
       setProfiles(data.data);
     } catch (error) {
       toast.error("Error fetching profiles");
