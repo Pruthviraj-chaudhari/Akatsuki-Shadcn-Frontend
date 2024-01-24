@@ -49,7 +49,7 @@ const ProfileCard: React.FC<{ data: ProfileData }> = ({ data }) => {
           toast.error("Something went wrong");
           console.error(`Error: Unable to fetch data. Status code: ${response.status}`);
         }
-      } catch (error) {
+      } catch (error: any) {
         toast.error("Something went wrong");
         console.error(`Error: ${error.message}`);
       }

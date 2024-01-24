@@ -1,11 +1,21 @@
-import React, { useEffect, useState } from "react"; // Import React and useState
+import { useEffect, useState } from "react"; // Import React and useState
 import ProfileCard from "./ProfileCard";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { DotLoader } from "react-spinners";
 import { toast } from "sonner";
 
+interface ProfileData {
+  name: string;
+  role: string;
+  github: string;
+  leetcode: string;
+  linkedin: string;
+  resume: string;
+  isMember: boolean;
+}
+
 const Cards = () => {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState<ProfileData[]>([]);
   const [loading, setLoading] = useState(true);
 
   const getProfiles = async () => {
