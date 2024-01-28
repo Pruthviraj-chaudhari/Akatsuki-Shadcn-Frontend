@@ -22,8 +22,8 @@ const Welcome = () => {
 
   return (
     <Card className="flex flex-col lg:flex-row  max-w-[90vw] md:w-[80vw] justify-center mx-auto p-2 rounded-lg shadow-md m-3">
-      <div className="ml-5">
-        <CardHeader>
+      <div className="ml-5 lg:ml-10">
+        <CardHeader className="pl-0">
           <CardTitle className="text-2xl">
             <div className="flex gap-2 w-full">
               <img
@@ -40,8 +40,8 @@ const Welcome = () => {
             Akatsuki Coding Club
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <CardDescription>
+        <CardContent className="p-1">
+          <CardDescription className="lg:text-lg">
             Welcome to{" "}
             <span className="text-slate-900 font-medium">
               Akatsuki Connect !
@@ -58,7 +58,7 @@ const Welcome = () => {
             Hit "Add Me"!
           </CardDescription>
         </CardContent>
-        <CardFooter className="mt-4 gap-4 flex justify-start items-center">
+        <CardFooter className="p-1 mt-4 gap-4 flex justify-start items-center">
           <Button onClick={handleDiscover}>Discover Akatsuki</Button>
 
           <Button
@@ -71,7 +71,7 @@ const Welcome = () => {
         </CardFooter>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center lg:w-[80%]">
         <img
           src="/students.jpg"
           alt="Students"
