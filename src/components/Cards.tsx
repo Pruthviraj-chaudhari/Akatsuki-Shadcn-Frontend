@@ -2,7 +2,6 @@ import React, { FormEvent } from "react";
 import ProfileCard from "./ProfileCard";
 import { DotLoader } from "react-spinners";
 import { Card, CardTitle } from "@/components/ui/card";
-import { TextField, Theme } from "@radix-ui/themes";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import * as Realm from "realm-web";
 import { useState, useEffect } from "react";
@@ -84,8 +83,7 @@ const Cards: React.FC<CardsProps> = ({
 
   return (
     <div className="flex flex-col justify-center items-center">
-      {/* <Navbar /> */}
-      <div className="flex justify-evenly items-center w-full fixed top-0 bg-black bg-opacity-80 px-10 py-0 gap-2">
+      <div className="flex justify-evenly items-center w-full fixed top-0 bg-black bg-opacity-80 px-10 py-0 gap-8">
         <Card className="flex items-center bg-black bg-opacity-0 mb-4 relative top-2 border-none">
           <CardTitle className="flex justify-center items-center gap-2 lg:text-2xl sm:text-sm text-white tracking-wide">
             <img
@@ -96,35 +94,21 @@ const Cards: React.FC<CardsProps> = ({
             AKATSUKI'S OF RCPIT
           </CardTitle>
         </Card>
-
-        <form onSubmit={handleSubmit}>
-          <Theme
-            appearance="inherit"
-            accentColor="gray"
-            radius="full"
-            className="text-white"
-          >
-            <TextField.Root
-              size="3"
-              variant="soft"
-              className="rounded-full border-white border"
-            >
-              <TextField.Slot>
-                <MagnifyingGlassIcon
-                  height="16"
-                  width="16"
-                  className="text-white"
-                />
-              </TextField.Slot>
-              <TextField.Input
-                variant="white"
-                placeholder="Search…"
-                className=" text-white"
-                onChange={(e) => setSearchTerm(e.target.value)}
-                value={searchTerm}
-              />
-            </TextField.Root>
-          </Theme>
+        <form onSubmit={handleSubmit} className="flex justify-center w-36 lg:w-2/12">
+          <div className="relative w-full text-gray-600 focus-within:text-gray-400 border-[1.5px] border-white rounded-full ">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <MagnifyingGlassIcon height="20" width="20" className="text-white" />
+            </span>
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchTerm(e.target.value)}
+              name="search"
+              value={searchTerm}
+              className="py-2 text-sm text-white bg-transparent rounded-md pl-10 focus:outline-none "
+              autoComplete="off"
+            />
+          </div>
         </form>
       </div>
 
