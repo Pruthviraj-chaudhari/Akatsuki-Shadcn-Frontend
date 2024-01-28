@@ -74,7 +74,7 @@ const Welcome = () => {
       <div className="flex justify-center">
         <img
           src="/students.jpg"
-          alt="21852399-students-09"
+          alt="Students"
         />
       </div>
     </Card>
