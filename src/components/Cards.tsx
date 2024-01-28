@@ -117,9 +117,9 @@ const Cards: React.FC<CardsProps> = ({
                 />
               </TextField.Slot>
               <TextField.Input
-                variant="white"
+                variant=""
                 placeholder="Search…"
-                className="text-white bg-gray-700"
+                className=" text-white"
                 onChange={(e) => setSearchTerm(e.target.value)}
                 value={searchTerm}
               />
